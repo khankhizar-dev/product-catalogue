@@ -2,7 +2,7 @@
 
 ## Project overview
 
-Product catalogue with an Android client planned in `android/` and a Node.js + TypeScript backend in `backend/`.
+Product catalogue with an Android client in `android/` and a Node.js + TypeScript backend in `backend/`.
 
 - The Android app must use the backend API; it must not call Fake Store directly.
 - The backend uses Fastify, Zod, Nodemailer, and Vitest.
@@ -24,7 +24,9 @@ backend/src/
   providers/          ProductProvider and FakeStoreProvider
   email/              EmailSender and SMTP implementation
 backend/test/         Unit and API tests
-android/              Android/Jetpack Compose code (not yet populated)
+android/
+  app/src/main/       Compose UI, Hilt DI, Retrofit API, domain models and repository
+  app/src/test/       Android unit and repository contract tests
 docker-compose.yml    Local backend and Mailpit services
 ```
 
@@ -87,9 +89,25 @@ Prefer focused tests for the affected behaviour, but do not leave existing tests
 
 ## Android conventions
 
-The `android/` directory is currently empty. If implementing or modifying Android code:
-
 - Use Kotlin and Jetpack Compose.
-- Keep networking in a Retrofit/data layer.
+- Keep networking in the Retrofit/data layer.
 - Keep domain models and repository interfaces separate from Compose UI.
 - Do not hard-code the emulator base URL in screens; use build configuration.
+- Use Hilt for application, network and repository composition.
+- Keep catalogue operations behind `CatalogRepository`.
+- Preserve client-side validation as feedback only; the backend remains authoritative.
+- Keep light and dark palettes aligned with system theme selection.
+- Use Material 3 typography so system font scaling is respected; avoid fixed text sizing.
+- Provide accessibility descriptions for non-text controls and meaningful images, and labels for form fields.
+- Check UI changes in both theme modes, across display sizes and with increased system font scaling.
+
+## Android commands
+
+Run Android commands from `android/`:
+
+```bash
+./gradlew assembleDebug
+./gradlew testDebugUnitTest
+```
+
+The emulator default is `http://10.0.2.2:3000/`. Override it with `-Pcatalogue.baseUrl=...` or `catalogue.baseUrl=...` in `gradle.properties`. For a physical device, add the LAN host to `app/src/main/res/xml/network_security_config.xml`.

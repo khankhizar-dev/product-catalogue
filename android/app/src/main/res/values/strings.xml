@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Catalogue</string>
+
+    <!-- Navigation & Titles -->
+    <string name="title_product">Product</string>
+    <string name="title_search">Search</string>
+    <string name="title_enquire">Enquire</string>
+    <string name="cd_back">Back</string>
+    <string name="cd_search">Search</string>
+    <string name="label_search_products">Search products</string>
+    <string name="btn_try_again">Try again</string>
+    <string name="btn_enquire">Enquire</string>
+
+    <!-- Sections & Headers -->
+    <string name="section_top_rated">Top rated</string>
+    <string name="section_more_in_category">More in %1$s</string>
+
+    <!-- Product Formatting -->
+    <string name="product_rating_format">★ %1$s (%2$d)</string>
+    <plurals name="product_rating_reviews_format">
+        <item quantity="one">★ %1$s (%2$d review)</item>
+        <item quantity="other">★ %1$s (%2$d reviews)</item>
+    </plurals>
+
+    <!-- Search Screen -->
+    <string name="empty_search_results">No products match \"%1$s\".</string>
+
+    <!-- Enquiry Screen -->
+    <string name="thank_you_title">Thank you!</string>
+    <string name="thank_you_message">We\'ve received your enquiry and will be in touch soon.</string>
+    <string name="btn_back_to_catalogue">Back to catalogue</string>
+    <string name="enquiry_about_product">About: %1$s</string>
+    <string name="label_name">Name</string>
+    <string name="label_email">Email</string>
+    <string name="label_phone_optional">Phone (optional)</string>
+    <string name="label_message">Message</string>
+    <string name="btn_send_enquiry">Send enquiry</string>
+
+    <!-- Validation & Error Messages -->
+    <string name="validation_name_required">Please enter your name</string>
+    <string name="validation_email_invalid">Please enter a valid email address</string>
+    <string name="validation_phone_invalid">Please enter a valid phone number</string>
+    <string name="validation_message_required">Please tell us what you\'d like to know</string>
+    <string name="error_check_details">Please check your details and try again.</string>
+
+    <!-- System / Repository Errors -->
+    <string name="error_network">Can\'t reach the server. Check your connection and try again.</string>
+    <string name="error_not_found">We couldn\'t find that.</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_too_many_enquiries">Too many enquiries. Please wait a minute and try again.</string>
+    <string name="error_send_enquiry_failed">We couldn\'t send your enquiry. Please try again.</string>
+</resources>

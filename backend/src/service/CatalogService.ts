@@ -12,8 +12,17 @@ export interface CategoryListing {
   others: Product[];
 }
 
+const compareProductIds = (a: string, b: string) => {
+  const numericA = Number(a);
+  const numericB = Number(b);
+  if (Number.isSafeInteger(numericA) && Number.isSafeInteger(numericB)) {
+    return numericA - numericB || a.localeCompare(b);
+  }
+  return a.localeCompare(b);
+};
+
 const byRating = (a: Product, b: Product) =>
-  b.rating.rate - a.rating.rate || b.rating.count - a.rating.count || a.id.localeCompare(b.id);
+  b.rating.rate - a.rating.rate || b.rating.count - a.rating.count || compareProductIds(a.id, b.id);
 
 export class CatalogService {
   constructor(

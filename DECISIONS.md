@@ -27,10 +27,10 @@
 | Item | Decision | Why |
 |------|----------|-----|
 | Pagination / infinite scroll | Dropped | Catalogue is about 20 items. Cost outweighs benefit within the time-box. |
-| Offline caching on Android | Dropped | Android is not implemented in the current submission, so caching is not in scope. Repository code will provide the natural integration point later. |
+| Offline caching on Android | Dropped | The PoC reads live backend data; the repository interface already isolates data access for a later cache implementation. |
 | Email delivery retries / queue | Simplified: synchronous send, clear error response | A queue is the right next step, but is overkill for a PoC. |
-| Visual polish | Simplified: Material 3 defaults with a central theme file | Creative work is still in progress, so styling is isolated for later replacement. |
-| Full accessibility pass | Deferred | Not applicable until the Android UI exists. |
+| Visual polish | Simplified: Material 3 light/dark palettes, typography and central spacing tokens | Styling is implemented and isolated for later visual refinement. |
+| Accessibility and adaptive UI | Core support implemented | Icon actions and product images have accessibility descriptions, controls use labels, and Material 3 typography respects system font scaling. Screens were checked across multiple display sizes, font scales and both theme modes; a formal accessibility conformance audit remains future work. |
 | CAPTCHA on enquiry | Dropped, rate limiting only | Avoids third-party accounts. |
 
 ## 4. How the design supports growth beyond the PoC
@@ -61,7 +61,7 @@
 5. Add caching in front of the provider (the source is slow and rate limited).
 6. Add CI (build, lint, test) and an AWS deployment definition (e.g. ECS Fargate with Terraform or CDK).
 7. Improve search: ranking, typo tolerance, then a search engine if the catalogue grows.
-8. Android: offline cache, accessibility audit, and screenshot tests once the design lands.
+8. Android: offline cache and a formal accessibility conformance audit.
 
 ## 7. Time spent
 

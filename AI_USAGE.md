@@ -43,10 +43,10 @@ It covered:
 - **Outcome:** I added repository-specific guidance covering architecture boundaries, NodeNext imports, API behaviour, commands, and Android conventions.
 - **Why it mattered:** The instruction file gives future AI coding sessions persistent context instead of relying on chat history.
 
-### Moment 3: Completing the documentation
-- **Prompt:** Fill all Markdown files properly.
-- **Outcome:** I removed draft and confirmation placeholders and replaced them with the repository's verified implementation status.
-- **Why it mattered:** The submission documentation now distinguishes implemented backend work from still-unimplemented Android work.
+### Moment 3: Completing the Android implementation and documentation
+- **Prompt:** Fill all Markdown files properly and update them based on the Android code.
+- **Outcome:** I removed status placeholders, documented the implemented Compose/Hilt/Retrofit app, and aligned run, test and architecture guidance with the source.
+- **Why it mattered:** The submission documentation now reflects both implemented layers rather than describing Android as reserved or unimplemented.
 
 ### Moment 4: Dependency restoration
 - **Prompt:** Test and build the backend.
@@ -65,11 +65,12 @@ It covered:
 - The implementation and documentation changes were reviewed for consistency with the existing source layout.
 - Backend behavior was verified with the Vitest suite.
 - Backend compilation was verified with both `npm run typecheck` and `npm run build`.
-- The Android app was not available to run or test in this session.
-- The PR diff should be reviewed before submission, especially the Android status and any future additions.
+- Android source was reviewed for Gradle configuration, Compose navigation, Hilt composition, Retrofit contracts and ViewModel behavior.
+- Android unit-test sources were reviewed. The UI was checked across multiple display sizes, font scales and light/dark modes; runtime build and test commands require a configured JDK and Android SDK.
+- The PR diff should be reviewed before submission, especially generated build output and project configuration.
 - Verified the backend with 20 passing Vitest tests, `npm run typecheck`, and `npm run build`.
 - Reviewed the affected imports and package scripts rather than relying only on test success.
-- Confirmed that the Android project is not present before documenting it as deferred.
+- Confirmed that Android uses the backend API only and does not call Fake Store directly.
 
 ## 7. Ownership statement
 
