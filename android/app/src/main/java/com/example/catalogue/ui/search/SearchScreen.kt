@@ -43,7 +43,17 @@ fun SearchScreen(
     var text by rememberSaveable { mutableStateOf(viewModel.initialQuery) }
 
     Scaffold(
-        topBar = { TopAppBar(title = { Text(stringResource(R.string.title_search)) }, navigationIcon = { BackButton(onBack) }) },
+        topBar = {
+            TopAppBar(
+                title = { Text(stringResource(R.string.title_search)) },
+                navigationIcon = {
+                    BackButton(onBack = {
+                        text = ""
+                        onBack()
+                    })
+                },
+            )
+        },
     ) { padding ->
         Column(Modifier.padding(padding)) {
             CatalogSearchField(
@@ -66,7 +76,10 @@ fun SearchScreen(
                                 horizontalArrangement = Arrangement.spacedBy(Spacing.md),
                                 verticalArrangement = Arrangement.spacedBy(Spacing.md),
                             ) {
-                                productItems(currentState.data, onProductClick)
+                                productItems(currentState.data) { productId ->
+                                    text = ""
+                                    onProductClick(productId)
+                                }
                             }
                         }
                 }

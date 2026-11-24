@@ -14,6 +14,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -44,6 +45,10 @@ fun HomeScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     var query by rememberSaveable { mutableStateOf("") }
 
+    LaunchedEffect(Unit) {
+        query = ""
+    }
+
     Scaffold(topBar = { TopAppBar(title = { Text(stringResource(R.string.app_name)) }) }) { padding ->
         Box(Modifier.padding(padding)) {
             when (val currentState = state) {
@@ -59,7 +64,13 @@ fun HomeScreen(
                         CatalogSearchField(
                             query = query,
                             onQueryChange = { query = it },
-                            onSearch = { if (query.isNotBlank()) onSearch(query.trim()) },
+                            onSearch = {
+                                if (query.isNotBlank()) {
+                                    val q = query.trim()
+                                    query = ""
+                                    onSearch(q)
+                                }
+                            },
                         )
                     }
                     item(span = { GridItemSpan(maxLineSpan) }) {
