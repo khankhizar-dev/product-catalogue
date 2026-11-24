@@ -78,4 +78,11 @@ The submitter remains responsible for reviewing, understanding, and defending th
 
 ## 8. Time spent
 
-See [`DECISIONS.md`](DECISIONS.md) section 7. Exact elapsed time was not recorded.
+| Phase | Time | Summary |
+|-------|------|---------|
+| Planning and architecture | 50 minutes | Clarified the requirements, planned the architecture, and chose to keep Android and backend in the same repository. |
+| Implementation | 1 hour 15 minutes | Implemented both components and added test cases and coverage. |
+| Testing | 40 minutes | Tested on the Android emulator. |
+| **Total** | **2 hours 45 minutes** | |
+
+See [`DECISIONS.md`](DECISIONS.md) section 1 for the repository structure decision and section 7 for the detailed time breakdown.

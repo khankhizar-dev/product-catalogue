@@ -6,6 +6,7 @@
 |-------|--------|-----|
 | Client | Android, Kotlin + Jetpack Compose | Strongest area of expertise, so I can defend every line. Compose keeps UI declarative and easy to restyle when the creative work lands. |
 | Backend | Node.js + TypeScript (Fastify) | Fast to stand up, typed, small footprint, easy to containerise for AWS (ECS/Lambda). |
+| Repository | Android and backend in one repository | Keeps the client and API implementation, contracts, documentation, and local development setup together; neither component is maintained in a separate repository. |
 | Infra | `docker compose` for local run, with Mailpit for email | Reviewer runs one command and needs no paid accounts. Docker images are AWS-compatible. |
 
 ## 2. Assumptions (where the acceptance criteria were unclear)
@@ -65,4 +66,9 @@
 
 ## 7. Time spent
 
-Actual time was not recorded by the implementation session. The time-box is approximately 2 to 3 hours; elapsed time should be added here if it is subsequently measured.
+| Phase | Time | Work |
+|-------|------|------|
+| Planning and architecture | 50 minutes | Understood the requirements, defined the architecture, and decided Android and backend should live in the same repository rather than separate repositories. |
+| Implementation | 1 hour 15 minutes | Implemented the backend and Android app, including test cases and coverage. |
+| Testing | 40 minutes | Tested the app on the Android emulator. |
+| **Total** | **2 hours 45 minutes** | |
