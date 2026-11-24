@@ -1,0 +1,4 @@
+<resources>
+    <!-- Compose draws the real theme (ui/theme). This is just the window shell. -->
+    <style name="Theme.Catalogue" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>

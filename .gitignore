@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.gradle/
+**/.gradle/
+.idea/
+**/.idea/
+.kotlin/
+**/.kotlin/
+**/build/
+**/local.properties
